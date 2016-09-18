@@ -1,0 +1,296 @@
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
+
+<script>
+  //alert("HELLO");
+  var cardValues = ['2', '3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K', 'A'];
+  var suitValues = ["&diams;", "&hearts;", "&clubs;", "&spades;"];
+  var card1 = 0;
+  var card2 = 0;
+  var card3 = 0;
+  var card4 = 0;
+  
+  $(document).ready(function() 
+  {
+  	$("#box1").children().each(function() {
+  		$(this).fadeOut();
+  	});
+  	
+  	$("#box2").children().each(function() {
+  		$(this).fadeOut();
+  	});
+  	
+  	
+  	$("#box1").click(function() {
+    	$("#box1").children().each(function() {
+    		$(this).fadeIn();
+    	});
+
+  	
+	    //$("#box1").html("How are you");
+	
+	    var randomPick = Math.floor(Math.random()*13);
+	    var randomSuit = Math.floor(Math.random()*4);
+	    card1 = randomPick + 2;
+	
+      $("#player1total").html( (card2+card1) );    				
+	
+      $("#player2total").html( (card3+card4) );
+
+
+	    $("#box1TopLeft").html( cardValues[randomPick] );
+	    $("#box1BottomRight").html( cardValues[randomPick] );
+	    $("#box1Center").html( suitValues[randomSuit] );
+    });
+	
+    $("#box2").click(function() {
+      $("#box2").children().each(function() {
+    		$(this).fadeIn();
+    	});
+	    //$("#box2").html("Whats up");
+	
+	    var randomPick = Math.floor(Math.random()*13);
+	    var randomSuit = Math.floor(Math.random()*4);
+      card2 = randomPick + 2;
+
+      $("#player1total").html( (card2+card1) );
+  			
+	    $("#box2BottomRight").html( cardValues[randomPick] );
+	    $("#box2TopLeft").html( cardValues[randomPick] );
+
+    }); 
+
+
+    $("#bottomCard1").click(function() {
+
+      $("#bottomCard1").children().each(function() {
+        $(this).fadeIn();
+      });
+      //$("#box2").html("Whats up");
+  
+      var randomPick = Math.floor(Math.random()*13);
+      var randomSuit = Math.floor(Math.random()*4);
+      card3 = randomPick + 2;
+
+      $("#player2total").html( (card3+card4) );
+
+      $("#bottomBox1BottomRight").html( cardValues[randomPick] );
+      $("#bottomBox1TopLeft").html( cardValues[randomPick] );
+
+    }); 
+
+
+    $("#bottomCard2").click(function() {
+      $("#bottomCard2").children().each(function() {
+        $(this).fadeIn();
+      });
+      //$("#box2").html("Whats up");
+  
+      var randomPick = Math.floor(Math.random()*13);
+      var randomSuit = Math.floor(Math.random()*4);
+      card4 = randomPick + 2;
+
+      $("#player2total").html( (card3+card4) );
+        
+      $("#bottomBox2BottomRight").html( cardValues[randomPick] );
+      $("#bottomBox2TopLeft").html( cardValues[randomPick] );
+
+    }); 
+	
+  // WHEN 21 REACHED WINNER
+  // var box1;
+  // var box2;
+
+  // function win() {
+  //   if (box1 + box2 == 21)
+  //     alert('winner')
+  // };
+  //   win()
+  });
+</script>
+      
+<style>
+body {
+    background-color: blue;
+    outline-style: solid;
+    outline-style: double;
+    outline-width: thick;
+    border: 5px solid black;
+  }
+
+.card {
+  height: 160px;
+  width: 100;
+  background: yellow;
+  display: inline-block;
+  margin: 10px;  
+  position: relative;
+}
+
+#cards {
+	background: green;
+  width: 344px;
+  margin: auto;
+  text-align: center;
+
+}
+
+.topLeftCorner {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	background-color: gray;
+	font-size:24px;
+}
+
+#player1 {
+	background-color: orange;
+	width: 500px;
+	margin: auto;
+	padding: 20px;
+	margin-top: 40px;
+}
+
+.bottomRightCorner {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	background: gray;
+	font-size:24px;
+}
+
+.center{
+	position: absolute;
+	background: red;
+	font-size: 24px;
+  width: 40px;
+  height: 26px;
+	right: calc(50% - 20px);
+	bottom: calc(50% - 13px);
+}
+
+#cards2 {
+	background-color: orange;
+  padding: 20px;
+	height: 300px;
+  margin: auto;
+  width: 500px;
+  margin-top: 10px;
+}
+
+#innerBox2{
+  background-color: black;
+  position: absolute;
+}
+
+#player2{
+  background-color: orange;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+#bottomBox1{
+  background-color: green;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+}
+
+#bottomCard1{
+  background-color: yellow;
+}
+
+#bottomCard2{
+    background-color: yellow;
+}
+
+</style>
+</head>
+<body>
+
+<div id="player1">
+  <h2>Tommy Lee</h2>
+  Total: <div id="player1total">?</div>
+
+  <div id="cards">
+    <div id="box1" class="card">
+    
+    	<div class="topLeftCorner" id="box1TopLeft">
+  			5
+  		</div>
+  		
+  		<div class="center" id="box1Center">
+    		&diams;
+  		</div>
+    
+    	<div class="bottomRightCorner" id="box1BottomRight">
+    		5
+    	</div>
+    	
+    </div>
+    <!-- four extra pixels here -->
+    <div id="box2" class="card">
+  		<div class="topLeftCorner" id="box2TopLeft">
+  			7
+  		</div>
+
+  		<div class="center">
+	     &spades;
+  		</div>
+  		
+  		<div class="bottomRightCorner" id="box2BottomRight">
+  			7
+  	  </div>
+  	</div>
+  </div>
+</div>
+
+<!--MAKE PLAYER TWO!!!!-->
+<div id="player2">
+Total: <div id="player2total">?</div>
+
+  <div id = "bottomBox1">
+  
+    <div id = "bottomCard1" class="card">
+    
+      <div class="topLeftCorner" id="bottomBox1TopLeft">
+        3
+      </div>
+      <div class="center">
+        &spades;
+      </div>
+      <div class="bottomRightCorner" id="bottomBox1BottomRight">
+        3
+      </div>
+
+    </div>
+
+    <div id = "bottomCard2" class="card">
+      <div class="topLeftCorner" id="bottomBox2TopLeft">
+        3
+      </div>
+      <div class="center">
+        &diams;
+      </div>
+      <div class="bottomRightCorner" id="bottomBox2BottomRight">
+        3
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+
+</html>
+
+
